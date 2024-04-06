@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class AddExpenseController {
     private Expense expense;
@@ -15,6 +17,13 @@ public class AddExpenseController {
         JFrame frame = new JFrame("Add| Personal Finance Tracker");
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                super.windowClosed(e);
+                new MainExpenseController(user); // Create a new instance of MainExpenseController when the frame is closed
+            }
+        });
 
         JPanel panel = new JPanel(new GridLayout(0, 2));
         frame.add(panel);
