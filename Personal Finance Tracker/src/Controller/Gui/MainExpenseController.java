@@ -48,9 +48,9 @@ public class MainExpenseController {
         budgetPanel.add(budgetLabel);
         budgetPanel.add(changeBudgetButton);
 
-        JPanel transactionsPanel = new JPanel(new GridLayout(0, 3));
-        transactionsPanel.setBackground(Color.LIGHT_GRAY);
-        mainPanel.add(transactionsPanel, BorderLayout.CENTER);
+        JPanel expensesPanel = new JPanel(new GridLayout(0, 3));
+        expensesPanel.setBackground(Color.LIGHT_GRAY);
+        mainPanel.add(expensesPanel, BorderLayout.CENTER);
 
         boolean firstExpense = true;
         for (Expense expense : user.getExpenseList()) {
@@ -64,10 +64,10 @@ public class MainExpenseController {
                 }
             });
             if (firstExpense) {
-                transactionsPanel.add(new JLabel());
+                expensesPanel.add(new JLabel());
                 firstExpense = false;
             }
-            transactionsPanel.add(expenseButton);
+            expensesPanel.add(expenseButton);
         }
 
         JPanel footerPanel = new JPanel();
@@ -78,7 +78,7 @@ public class MainExpenseController {
         footerPanel.add(spendingLabel);
         footerPanel.add(moneyLeftLabel);
 
-        JButton addButton = new JButton("Add Transaction");
+        JButton addButton = new JButton("Add expense");
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
