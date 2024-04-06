@@ -1,4 +1,4 @@
-package Model;
+package Model.Expense;
 
 public class TinTaxDecorator extends ExpenseWrapper{
     public TinTaxDecorator(TaxDeductibleExpense expense) {
@@ -6,8 +6,12 @@ public class TinTaxDecorator extends ExpenseWrapper{
     }
     @Override
     public Double calculateTotal() {
-        total= 0.15 + getCost() + (((double) getTax() /100)* getCost());
-        return total;
+        return super.calculateTotal() + 0.15;
     }
+    @Override
+    public String getName() {
+        return super.getName()+ "(tin tax)";
+    }
+
 
 }

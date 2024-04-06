@@ -1,10 +1,9 @@
-package Model;
+package Model.Expense;
 
 public abstract class ExpenseWrapper implements Expense {
 
     private Expense wrappedExpense;
     public double total;
-    private String createdBy;
     private int tax;
     private final double cost;
     private final String name;
@@ -41,11 +40,6 @@ public abstract class ExpenseWrapper implements Expense {
     @Override
     public Double getCost() {
         return cost;
-    }
-
-    @Override
-    public String getCreatedBy() {
-        return createdBy;
     }
 
     @Override

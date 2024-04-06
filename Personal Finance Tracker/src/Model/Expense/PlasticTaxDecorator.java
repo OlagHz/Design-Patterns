@@ -1,4 +1,4 @@
-package Model;
+package Model.Expense;
 
 public class PlasticTaxDecorator extends ExpenseWrapper{
 
@@ -7,8 +7,12 @@ public class PlasticTaxDecorator extends ExpenseWrapper{
     }
     @Override
     public Double calculateTotal() {
-        total= 0.25 + getCost() + (((double) getTax() /100)* getCost());
-        return total;
+        return super.calculateTotal() + 0.25;
     }
+    @Override
+    public String getName() {
+        return super.getName()+ "(plastic tax)";
+    }
+
 
 }

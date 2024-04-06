@@ -1,4 +1,4 @@
-package Model;
+package Model.Expense;
 
 public class ExpenseFactory {
 

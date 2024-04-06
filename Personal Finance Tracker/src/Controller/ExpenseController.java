@@ -1,11 +1,11 @@
 package Controller;
 
-import Model.Expense;
+import Model.Expense.Expense;
 import View.ExpenseView;
 
 public class ExpenseController {
-    private Expense model;
-    private ExpenseView view;
+    private final Expense model;
+    private final ExpenseView view;
 
     public ExpenseController(Expense model, ExpenseView view) {
         this.model = model;

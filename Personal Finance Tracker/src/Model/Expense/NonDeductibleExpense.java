@@ -1,7 +1,6 @@
-package Model;
+package Model.Expense;
 
 public class NonDeductibleExpense implements Expense{
-    private String createdBy;
     private final double cost;
     private final String name;
 
@@ -18,11 +17,6 @@ public class NonDeductibleExpense implements Expense{
     @Override
     public Double getCost() {
         return cost;
-    }
-
-    @Override
-    public String getCreatedBy() {
-        return createdBy;
     }
 
     @Override

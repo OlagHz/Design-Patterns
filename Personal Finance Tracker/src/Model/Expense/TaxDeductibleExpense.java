@@ -1,9 +1,8 @@
-package Model;
+package Model.Expense;
 
 public class TaxDeductibleExpense implements Expense {
     private double total;
-    private String createdBy;
-    private int tax;
+    private double tax;
     private final double cost;
     private final String name;
 
@@ -11,23 +10,24 @@ public class TaxDeductibleExpense implements Expense {
         this.cost = cost;
         this.name = name;
         setTax();
-        this.tax = getTax();
     }
 
 
-    public int getTax() {
+    public double getTax() {
+
         return this.tax;
     }
     public void setTax() {
         if(getCost()< 1000){
-            tax = 15;
+            tax = ((double) 15 /100)* cost;
+
         }
         else if(getCost()> 1000 && getCost() <= 5000){
-            tax = 31;
+            tax = ((double) 31 /100)* cost;
         }
         else
         {
-            tax = 45;
+            tax = ((double) 45 /100)* cost;
         }
     }
 
@@ -42,13 +42,8 @@ public class TaxDeductibleExpense implements Expense {
     }
 
     @Override
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    @Override
     public Double calculateTotal() {
-        total= cost + (((double) getTax() /100)* cost);
+        total= cost + getTax();
         return total;
     }
 }

@@ -1,6 +1,6 @@
 package View;
 
-import Model.Expense;
+import Model.Expense.Expense;
 
 public class ExpenseView {
 
